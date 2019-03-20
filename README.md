@@ -6,3 +6,5 @@
 hope to make the whole code 
 
 3¡¢continue to do
+
+4¡¢up time 500 ,come  into the deal lock
