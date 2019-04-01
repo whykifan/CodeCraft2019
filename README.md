@@ -23,13 +23,13 @@
  ## 前言
 这次的华为挑战赛，号称这个比赛最难的一次题目，车辆调度规则的确是挺复杂的，但是也有很大的漏洞，即使不写出调度器，只进行简单的最短路径规划，然后根据地图，路口，车辆的各种数据特征进行分析，在只针对固定地图的情况下进行参数调试，也可以取得比较理想的成绩，自己一开始也是这样做的，而且测试赛阶段成绩还可以，后来觉得这种投机取巧的方法总感觉是不可靠的，也许能混进复赛，但是绝对不会进入前几，获得华为的深圳决赛资格，享受华为费用全包的土豪生活的(1_1)，于是在正式比赛前的一周，决定撸起来了调度器，辛辛苦苦写了一千多行的代码，进行路径的实时规划，然而，然而............
 <div  align="center">
-<img src="https://i.loli.net/2019/04/01/5ca1737180f07.jpg" width="300" hegiht="300"/>
+<img src="https://i.loli.net/2019/04/01/5ca1737180f07.jpg" width="300" hegiht="300"/></div>
 
 
 事实证明，没事不要搞什么乱起八糟的算法，好好调参不就行了吗，真是应验了宣讲会学长说的：“不要搞那些复杂的算法，往往简单的算法能取得很好的效果”。正式比赛的时候，本地运行没什么问题，已上传代码以后各种"Program runs failed",折腾了一天都不知道啥子问题，最后只能把原来的代码搞了上去，一看这成绩我就知道凉了，单图的成绩是别人双图的成绩加起来还多.....
 
 <div  align="center">
-<img src="https://i.loli.net/2019/04/01/5ca17476dcf1b.jpg" width="300" hegiht="300"/>
+<img src="https://i.loli.net/2019/04/01/5ca17476dcf1b.jpg" width="300" hegiht="300"/></div>
 
  此次挑战赛的题目是关于智能交通的，一开始只看题目的简单介绍还是感觉不是特别复杂的，但是在比赛任务书的详细介绍里面，则是拥有了很多的限制条件，尤其如何处理道路死锁那一块，一直是整个比赛当中影响整个比赛成绩的关键，自己是在车辆调度过程当中，判断下一条道路状态，如果道路无法进入，就重新寻路，或者延迟这辆车的发车时间，但是效果不是特别的理想，单图2100左右(<font size = 2>*虽然使用自己的判断器试的1_1，测试赛上传没问题，正式赛就不行了......真是一个令人伤心的故事，也怪自己没有做好代码备份*</font>）。
  
@@ -126,7 +126,7 @@ A*算法在运算过程中，每次从优先队列中选取f(n)值最小（优�
 **A*算法与Dijkstra算法速度比较**
 
 <div  align="center">
-<img src="https://upload-images.jianshu.io/upload_images/12119754-0479d0d83f9cb9b2.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/479/format/webp" width="600" hegiht="500"/>
+<img src="https://upload-images.jianshu.io/upload_images/12119754-0479d0d83f9cb9b2.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/479/format/webp" width="600" hegiht="500"/></div>
 
 ### 启发函数
 启发函数会影响A*算法的行为。
@@ -187,25 +187,25 @@ Floyd算法的核心代码只有五行，十分的简洁：
 1. 同一道路牌车道号小（车道的编号）的车辆优先于车道号大的车辆
 
 <div  align="center">
-<img src="https://i.loli.net/2019/03/31/5ca0719b1a196.png" width="300" hegiht="300"/>
+<img src="https://i.loli.net/2019/03/31/5ca0719b1a196.png" width="300" hegiht="300"/></div>
 
 2. 按现实交通规则，直行车辆有优先通行权，直行车辆优先于转弯车辆
 
 <div  align="center">
-<img src="https://i.loli.net/2019/03/31/5ca0719b1a196.png" width="300" hegiht="300"/>
+<img src="https://i.loli.net/2019/03/31/5ca0719b1a196.png" width="300" hegiht="300"/></div>
 
 4. 处于左转进入道路的车辆优先于右转进入道路的车辆
 <div  align="center">
-<img src="https://i.loli.net/2019/03/31/5ca0732bee1e6.png" width="300" hegiht="300"/>
+<img src="https://i.loli.net/2019/03/31/5ca0732bee1e6.png" width="300" hegiht="300"/></div>
 
  **车道固定进入**：车辆在进入一段道路时按照车道编号从小到大的优先级选择可以进入的车道驶入，与前车的行驶速度无关。即就是：车辆优先按车道编号由小到大依次进入，除非车道号小的车道没有空位可进入。
 <div  align="center">
-<img src="https://i.loli.net/2019/03/31/5ca073f03f455.png" width="400" hegiht="300"/>
+<img src="https://i.loli.net/2019/03/31/5ca073f03f455.png" width="400" hegiht="300"/></div>
 
 **如下Figure 5**：车道行驶规则举例所示，左侧道路车辆经一定时间行驶达到右侧道路车辆状态。
 
 <div  align="center">
-<img src="https://i.loli.net/2019/03/31/5ca073fd5add7.png" width="400" hegiht="400"/>
+<img src="https://i.loli.net/2019/03/31/5ca073fd5add7.png" width="400" hegiht="400"/></div>
 
 ## 5. 题目输入  
 
@@ -223,7 +223,7 @@ Floyd算法的核心代码只有五行，十分的简洁：
 对于多车道的道路，相对于行驶方向，车道编号从左至右依次增大。
 
 <div  align="center">
-<img src="https://i.loli.net/2019/03/31/5ca073fd04f42.png" width="400" hegiht="300"/>
+<img src="https://i.loli.net/2019/03/31/5ca073fd04f42.png" width="400" hegiht="300"/></div>
 
 **车辆**
 车辆数据文件“car.txt”。
@@ -239,7 +239,7 @@ Floyd算法的核心代码只有五行，十分的简洁：
 路口信息数据向量中的道路id，以路口为中心，其所连接的道路id按顺时针方向编排。比如向量(100,21,30,9,55)和(100,21,30,-1,55)分别表示如下：
 
 <div  align="center">
-<img src="https://i.loli.net/2019/03/31/5ca073fd5664e.png" width="600" hegiht="500"/>
+<img src="https://i.loli.net/2019/03/31/5ca073fd5664e.png" width="600" hegiht="500"/></div>
 
 
 l “#”开始的数据行为说明性文字，可以理解成为注释。如：“#(结点id,道路id,道路id,道路id,道路id)”。
